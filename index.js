@@ -9,7 +9,8 @@
 
 module.exports = function(src, fn){
   var img = new Image();
-  img.onload = function(){ fn(img) };
+  img.onload = function(){ fn(null, img) };
+  img.onerror = fn;
   img.src = src;
   return img;
 };
