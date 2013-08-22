@@ -13,7 +13,8 @@
 var image = require('load-image');
 var body = document.body;
 body.className = 'loading';
-image('/foo.jpg', function(img){
+image('/foo.jpg', function(err, img){
+  if (err) throw err;
   body.className = '';
   body.style.background = 'url(' + img.src + ')';
 });
